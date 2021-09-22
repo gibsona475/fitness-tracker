@@ -12,11 +12,12 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnessTracker", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false, 
+  useUnifiedTopology: true
 });
 
 // routes
-// app.use(require("./routes/api.js"));
+app.use(require("./routes/api.js"));
 app.use(require("./routes/html.js"));
 
 app.listen(PORT, () => {
